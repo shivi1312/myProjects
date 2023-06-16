@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VccUpdateServiceService WSDL service -->
+
+  <service name="VccUpdateService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.vcc.com"/>
+      <parameter name="wsdlServiceElement" value="VccUpdateServiceService"/>
+      <parameter name="schemaQualified" value="http://bean.vcc.com,http://updatebean.vcc.com,http://service.vcc.com"/>
+      <parameter name="wsdlServicePort" value="VccUpdateService"/>
+      <parameter name="className" value="com.vcc.service.VccUpdateService"/>
+      <parameter name="wsdlPortType" value="VccUpdateService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.vcc.com" xmlns:retNS="http://service.vcc.com" xmlns:rtns="http://bean.vcc.com" name="updateOrderStatus" qname="operNS:updateOrderStatus" returnQName="retNS:updateOrderStatusReturn" returnType="rtns:UpdateResponseData" soapAction="">
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://updatebean.vcc.com" qname="pns:applicationHeader" type="tns:ApplicationHeader"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://updatebean.vcc.com" qname="pns:dataHeader" type="tns:DataHeader"/>
+      </operation>
+      <parameter name="allowedMethods" value="updateOrderStatus"/>
+
+      <typeMapping xmlns:ns="http://updatebean.vcc.com" qname="ns:AdditionalInfo" type="java:com.vcc.updatebean.AdditionalInfo" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://updatebean.vcc.com" qname="ns:OfferID" type="java:com.vcc.updatebean.OfferID" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://bean.vcc.com" qname="ns:UpdateResponseData" type="java:com.vcc.bean.UpdateResponseData" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://updatebean.vcc.com" qname="ns:ApplicationHeader" type="java:com.vcc.updatebean.ApplicationHeader" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://bean.vcc.com" qname="ns:AckMessage" type="java:com.vcc.bean.AckMessage" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://updatebean.vcc.com" qname="ns:OrderItem" type="java:com.vcc.updatebean.OrderItem" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://updatebean.vcc.com" qname="ns:OrderInformation" type="java:com.vcc.updatebean.OrderInformation" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://updatebean.vcc.com" qname="ns:DataHeader" type="java:com.vcc.updatebean.DataHeader" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://bean.vcc.com" qname="ns:ResponseData" type="java:com.vcc.bean.ResponseData" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

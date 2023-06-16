@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.vcc.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.vcc.com" xmlns:intf="http://service.vcc.com" xmlns:tns1="http://updatebean.vcc.com" xmlns:tns2="http://bean.vcc.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.vcc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://updatebean.vcc.com"/>
+   <import namespace="http://bean.vcc.com"/>
+   <element name="updateOrderStatus">
+    <complexType>
+     <sequence>
+      <element name="applicationHeader" type="tns1:ApplicationHeader"/>
+      <element name="dataHeader" type="tns1:DataHeader"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateOrderStatusResponse">
+    <complexType>
+     <sequence>
+      <element name="updateOrderStatusReturn" type="tns2:UpdateResponseData"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://updatebean.vcc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://bean.vcc.com"/>
+   <complexType name="ApplicationHeader">
+    <sequence>
+     <element name="requestedDate" nillable="true" type="xsd:string"/>
+     <element name="requestedSystem" nillable="true" type="xsd:string"/>
+     <element name="retryLimit" nillable="true" type="xsd:string"/>
+     <element name="transactionID" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="AdditionalInfo">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="OfferID">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="OrderInformation">
+    <sequence>
+     <element name="attributeName" nillable="true" type="xsd:string"/>
+     <element name="attributeValue" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="OrderItem">
+    <sequence>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="offerID" nillable="true" type="tns1:OfferID"/>
+     <element name="orderInformation" nillable="true" type="tns1:OrderInformation"/>
+     <element name="status" nillable="true" type="xsd:string"/>
+     <element name="subRequestId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="DataHeader">
+    <sequence>
+     <element name="additionalInfo" nillable="true" type="tns1:AdditionalInfo"/>
+     <element name="orderItem" nillable="true" type="tns1:OrderItem"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://bean.vcc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://updatebean.vcc.com"/>
+   <complexType name="AckMessage">
+    <sequence>
+     <element name="errorCode" nillable="true" type="xsd:string"/>
+     <element name="errorDescription" nillable="true" type="xsd:string"/>
+     <element name="errorType" nillable="true" type="xsd:string"/>
+     <element name="status" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ResponseData">
+    <sequence>
+     <element name="transactionId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="UpdateResponseData">
+    <sequence>
+     <element name="ackMessage" nillable="true" type="tns2:AckMessage"/>
+     <element name="responseData" nillable="true" type="tns2:ResponseData"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="updateOrderStatusResponse">
+
+      <wsdl:part element="impl:updateOrderStatusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateOrderStatusRequest">
+
+      <wsdl:part element="impl:updateOrderStatus" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="VccUpdateService">
+
+      <wsdl:operation name="updateOrderStatus">
+
+         <wsdl:input message="impl:updateOrderStatusRequest" name="updateOrderStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateOrderStatusResponse" name="updateOrderStatusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="VccUpdateServiceSoapBinding" type="impl:VccUpdateService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="updateOrderStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateOrderStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateOrderStatusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="VccUpdateServiceService">
+
+      <wsdl:port binding="impl:VccUpdateServiceSoapBinding" name="VccUpdateService">
+
+         <wsdlsoap:address location="http://localhost:8080/VccCRMServer/services/VccUpdateService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

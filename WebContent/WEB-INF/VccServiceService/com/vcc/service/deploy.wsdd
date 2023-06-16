@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VccServiceService WSDL service -->
+
+  <service name="VccService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.vcc.com"/>
+      <parameter name="wsdlServiceElement" value="VccServiceService"/>
+      <parameter name="schemaQualified" value="http://service.vcc.com"/>
+      <parameter name="wsdlServicePort" value="VccService"/>
+      <parameter name="className" value="com.vcc.service.VccService"/>
+      <parameter name="wsdlPortType" value="VccService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.vcc.com" xmlns:retNS="http://service.vcc.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="unSubscribeNotifyMe" qname="operNS:unSubscribeNotifyMe" returnQName="retNS:unSubscribeNotifyMeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:msisdn" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:transactionId" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:language" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.vcc.com" xmlns:retNS="http://service.vcc.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="unSubscribeVoiceMail" qname="operNS:unSubscribeVoiceMail" returnQName="retNS:unSubscribeVoiceMailReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:msisdn" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:transactionId" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:language" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.vcc.com" xmlns:retNS="http://service.vcc.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="subscribeVoiceMail" qname="operNS:subscribeVoiceMail" returnQName="retNS:subscribeVoiceMailReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:msisdn" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:transactionId" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userProfile" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:language" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:subType" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.vcc.com" xmlns:retNS="http://service.vcc.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="unSubscribeVoiceNote" qname="operNS:unSubscribeVoiceNote" returnQName="retNS:unSubscribeVoiceNoteReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:msisdn" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:transactionId" type="tns:string"/>
+        <parameter xmlns:pns="http://service.vcc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:language" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="unSubscribeVoiceNote unSubscribeVoiceMail unSubscribeNotifyMe subscribeVoiceMail"/>
+
+  </service>
+</deployment>

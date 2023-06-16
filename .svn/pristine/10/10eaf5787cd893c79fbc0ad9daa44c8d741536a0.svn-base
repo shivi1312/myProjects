@@ -1,0 +1,23 @@
+Release Notes Of VccCrmClient
+
+------------------------------------------------------------------------------------------------------------------------
+Release Version:	3.0.0.3
+Release Date:		08/03/2017
+Release Updated By:	Abhishek Rana
+Release Features:
+			* Send NotifyMe opt-in and opt-out request towards Tibaco.
+			* Demand Ids has been added for Modifying the profile.
+			* Changes Regarding Triggers.
+			* Error Codes Implementation.
+			* Integration and testing with Tibaco for GetAccountDetails.
+			* Configure Demand_Id for sub,unsub and update as per Tibaco Interface.
+			* Handle request for Sub,unsub and getting subtype.
+			* Implemented SSL certification with basic authentication.
+			* Parameters are added in CreateProfile request required by Tibaco Interface.
+			
+			
+Release Bugs:
+
+------------------------------------------------------------------------------------------------------------------------
+			
+	

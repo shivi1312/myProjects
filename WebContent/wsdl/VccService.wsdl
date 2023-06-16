@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.vcc.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.vcc.com" xmlns:intf="http://service.vcc.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.vcc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="unSubscribeNotifyMe">
+    <complexType>
+     <sequence>
+      <element name="msisdn" type="xsd:string"/>
+      <element name="transactionId" type="xsd:string"/>
+      <element name="language" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unSubscribeNotifyMeResponse">
+    <complexType>
+     <sequence>
+      <element name="unSubscribeNotifyMeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unSubscribeVoiceMail">
+    <complexType>
+     <sequence>
+      <element name="msisdn" type="xsd:string"/>
+      <element name="transactionId" type="xsd:string"/>
+      <element name="language" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unSubscribeVoiceMailResponse">
+    <complexType>
+     <sequence>
+      <element name="unSubscribeVoiceMailReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subscribeVoiceMail">
+    <complexType>
+     <sequence>
+      <element name="msisdn" type="xsd:string"/>
+      <element name="transactionId" type="xsd:string"/>
+      <element name="userProfile" type="xsd:string"/>
+      <element name="language" type="xsd:string"/>
+      <element name="subType" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subscribeVoiceMailResponse">
+    <complexType>
+     <sequence>
+      <element name="subscribeVoiceMailReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unSubscribeVoiceNote">
+    <complexType>
+     <sequence>
+      <element name="msisdn" type="xsd:string"/>
+      <element name="transactionId" type="xsd:string"/>
+      <element name="language" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unSubscribeVoiceNoteResponse">
+    <complexType>
+     <sequence>
+      <element name="unSubscribeVoiceNoteReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="unSubscribeVoiceMailResponse">
+
+      <wsdl:part element="impl:unSubscribeVoiceMailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unSubscribeNotifyMeRequest">
+
+      <wsdl:part element="impl:unSubscribeNotifyMe" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subscribeVoiceMailResponse">
+
+      <wsdl:part element="impl:subscribeVoiceMailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unSubscribeNotifyMeResponse">
+
+      <wsdl:part element="impl:unSubscribeNotifyMeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unSubscribeVoiceNoteResponse">
+
+      <wsdl:part element="impl:unSubscribeVoiceNoteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unSubscribeVoiceMailRequest">
+
+      <wsdl:part element="impl:unSubscribeVoiceMail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unSubscribeVoiceNoteRequest">
+
+      <wsdl:part element="impl:unSubscribeVoiceNote" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subscribeVoiceMailRequest">
+
+      <wsdl:part element="impl:subscribeVoiceMail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="VccService">
+
+      <wsdl:operation name="unSubscribeNotifyMe">
+
+         <wsdl:input message="impl:unSubscribeNotifyMeRequest" name="unSubscribeNotifyMeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:unSubscribeNotifyMeResponse" name="unSubscribeNotifyMeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unSubscribeVoiceMail">
+
+         <wsdl:input message="impl:unSubscribeVoiceMailRequest" name="unSubscribeVoiceMailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:unSubscribeVoiceMailResponse" name="unSubscribeVoiceMailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subscribeVoiceMail">
+
+         <wsdl:input message="impl:subscribeVoiceMailRequest" name="subscribeVoiceMailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:subscribeVoiceMailResponse" name="subscribeVoiceMailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unSubscribeVoiceNote">
+
+         <wsdl:input message="impl:unSubscribeVoiceNoteRequest" name="unSubscribeVoiceNoteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:unSubscribeVoiceNoteResponse" name="unSubscribeVoiceNoteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="VccServiceSoapBinding" type="impl:VccService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="unSubscribeNotifyMe">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="unSubscribeNotifyMeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="unSubscribeNotifyMeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unSubscribeVoiceMail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="unSubscribeVoiceMailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="unSubscribeVoiceMailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subscribeVoiceMail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subscribeVoiceMailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subscribeVoiceMailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unSubscribeVoiceNote">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="unSubscribeVoiceNoteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="unSubscribeVoiceNoteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="VccServiceService">
+
+      <wsdl:port binding="impl:VccServiceSoapBinding" name="VccService">
+
+         <wsdlsoap:address location="http://localhost:8880/VccCrmClient/services/VccService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration> 
+	<properties fileName="default.properties" />
+    <env/>
+    <properties fileName="${PROPERTY_FILE_PATH}/VccCrmClient/setting.properties" />
+    
+</configuration>
